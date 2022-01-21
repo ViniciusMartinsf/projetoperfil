@@ -25,14 +25,16 @@ sleep(2)
 linhas(100)
 while True:
       menu()
-      escolha_opcão = int(input('Digite a opção: '.rjust(52)))
-      linhas(100)
-      if escolha_opcão == 3:
-            print(f'{r}Encerrando o jogo...{c}')
-            sleep(3)
-            break
-      if escolha_opcão == 2:
-            pontuação()
-      #GAME
-      if escolha_opcão == 1:
-            jogo()
+      try:
+            escolha_opcão = int(input('Digite a opção: '.rjust(52)))
+            linhas(100)
+            if escolha_opcão == 3:
+                  print(f'{r}Encerrando o jogo...{c}')
+                  sleep(3)
+                  break
+            if escolha_opcão == 2:
+                  pontuação()
+
+            if escolha_opcão == 1:
+                  jogo()
+      except: print(f'{r}Opção inválida{c}')

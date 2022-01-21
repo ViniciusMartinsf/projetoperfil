@@ -53,6 +53,11 @@ def arte():
 def linhas(msg):
     linha = print('-' * msg)
 
+def sleep1(nmr):
+    for c in range(0, nmr):
+        print('.', end='')
+        sleep(1)
+
 
 def instrucões():
     sleep(2)
@@ -66,29 +71,8 @@ def instrucões():
           'Quanto menos dicas você precisar, maior será a sua pontuação.\n'
           'Ao acertar 4 dicas, você entrará no ranking do jogo.\n'
           'De quantas dicas você precisa? Divirta-se.')
-    print(f'{b}Carregando menu principal{c}',end='')
-    ponto = ('.')
-    sleep(13)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto, end='')
-    sleep(1)
-    print(ponto)
-
+    print(f'{b}Carregando menu principal{c}', end='')
+    sleep1(11), print('.')
 
 def menu():
     print(f'{b}MENU{c}'.center(100))
@@ -107,7 +91,7 @@ Neymar = (('Nasci em 5 de fevereiro de 1992'),
           ('Sou o pai do Davi Lucca.'),
           ('Em 2013, fui para o Barcelona.'),
           ('Meu namoro com a atriz Bruna Marquezine causou frenesi na imprensa.'),
-          ('Neymar').upper())
+          ('NEYMAR'))
 Harry_Potter = (('Na vida real tambem sou britânico'),
                 ('Meus filmes renderam 8 grandes sucessos do cinema.'),
                 ('Morei meus primeiros 10 anos de vida com meus tios "Dursleys"'),
@@ -116,7 +100,7 @@ Harry_Potter = (('Na vida real tambem sou britânico'),
                 ('O Lord das trevas é meu inimigo'),
                 ('Minha casa é Grifinória'),
                 ('Lílian e James são meus pais'),
-                ('HARRY_POTTER'))
+                ('HARRYPOTTER'))
 Pessoa = ((Neymar), (Harry_Potter))
 #COISAS
 EstatuadaLiberdade = (('Sou patrimônio mundial da UNESCO nos Estados Unidos'),
@@ -129,7 +113,7 @@ EstatuadaLiberdade = (('Sou patrimônio mundial da UNESCO nos Estados Unidos'),
                       ('Frédéric Auguste Bartholdi foi meu arquiteto'),
                       ('Fui um presente dado aos Estados Unidos pelo povo da França'),
                       ('Eu represento a liberdade'),
-                      ('ESTATUA_DA_LIBERDADE'))
+                      ('ESTATUADALIBERDADE'))
 Mineirão = (('Sou o maior estádio do sudeste fora do eixo RJ-SP'),
             ('Aqui, já foram conquistadas 3 Libertadores da américa'),
             ('Em 2014 Mancharam a minha história de belas partidas de futebool'),
@@ -187,7 +171,7 @@ def pontuação():
     print(f'{b}NOME{c}              {y}PONTUAÇÃO{c}'.center(112))
     lerAquivo(arq)
     linhas(100)
-    voltar = input(f'{b}Enter para voltar{c}'.rjust(63))
+    voltar = input(f'{b}Tecle "Enter" para retornar ao menu.{c}'.center(100))
     linhas(100)
 
 
@@ -201,79 +185,89 @@ def jogo():
         resposta = 'n'
         sleep(1)
         print(f'{b}SORTEANDO A CARTA{c}'.center(100))
-        sleep(2)
         sorteio = choice(Opções)
         linhas(100)
+        sleep(2)
         print(f'SOU UM(A) {b}{sorteio}{c}'.center(100))
         linhas(100)
         sleep(1.5)
         if sorteio == Opções[1]:
             carta = choice(Pessoa)
             while True:
-                dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
-                linhas(100)
-                print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
-                resposta = input('Resposta : ').replace('Á', 'A').replace('Ã', 'A').replace(' ', '_').upper()
-                cont -= 1
-                if resposta == carta[8]:
-                    print(f'{b}PARABÉNS{c}! VOCÊ ACERTOU! Conseguiu {cont} pontos')
+                try:
+                    dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
                     linhas(100)
-                    sleep(1.5)
-                    break
-                else:
-                    print(f'{r}Errou{c}, Tente novamente.')
+                    print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
+                    resposta = input('Resposta : ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
+                    cont -= 1
                     linhas(100)
+                    if resposta == carta[8]:
+                        print(f'{b}PARABÉNS{c}! VOCÊ ACERTOU! Conseguiu {cont} pontos')
+                        linhas(100)
+                        sleep(1.5)
+                        break
+                    else:
+                        print(f'{r}Errou{c}, Tente novamente.')
+                        linhas(100)
+                except:
+                    print('Digite apenas números de 1 a 8: ')
         if sorteio == Opções[0]:
             carta = choice(Coisas)
             while True:
-                dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
-                linhas(100)
-                print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
-                resposta = input('Resposta: ').replace('Á', 'A').replace('Ã', 'A').replace(' ', '_').upper()
-                cont -= 1
-                linhas(100)
-                if resposta == carta[8]:
-                    print(f'{b}PARABÉNS!{c} VOCÊ ACERTOU! Conseguiu {cont} pontos')
+                try:
+                    dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
                     linhas(100)
-                    sleep(1.5)
-                    break
-                else:
-                    print(f'{r}Errou{c}, Tente novamente.')
+                    print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
+                    resposta = input('Resposta : ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
+                    cont -= 1
                     linhas(100)
+                    if resposta == carta[8]:
+                        print(f'{b}PARABÉNS{c}! VOCÊ ACERTOU! Conseguiu {cont} pontos')
+                        linhas(100)
+                        sleep(1.5)
+                        break
+                    else:
+                        print(f'{r}Errou{c}, Tente novamente.')
+                        linhas(100)
+                except:
+                    print('Digite apenas números de 1 a 8: ')
         if sorteio == Opções[2]:
             carta = choice(Ano)
             while True:
-                dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
-                linhas(100)
-                print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
-                resposta = input('Resposta : ').replace('Á', 'A').replace('Ã', 'A').strip().upper()
-                cont -= 1
-                linhas(100)
-                if resposta == carta[8]:
-                    print(f'{b}PARABÉNS!{c} VOCÊ ACERTOU! Conseguiu {cont} pontos')
+                try:
+                    dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
                     linhas(100)
-                    sleep(1.5)
-                    break
-                else:
-                    print(f'{r}Errou{c}, Tente novamente.')
+                    print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
+                    resposta = input('Resposta : ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
+                    cont -= 1
                     linhas(100)
+                    if resposta == carta[8]:
+                        print(f'{b}PARABÉNS{c}! VOCÊ ACERTOU! Conseguiu {cont} pontos')
+                        linhas(100)
+                        sleep(1.5)
+                        break
+                    else:
+                        print(f'{r}Errou{c}, Tente novamente.')
+                        linhas(100)
+                except:
+                    print('Digite apenas números de 1 a 8: ')
         if sorteio == Opções[3]:
             carta = choice(Lugar)
             while True:
-                dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
-                linhas(100)
-                print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
-                resposta = input('Resposta : ').replace('Á', 'A').replace('Ã', 'A').replace(' ', '_').upper()
-                cont -= 1
-                linhas(100)
-                if resposta == carta[8]:
-                    print(f'{b}PARABÉNS{c}! VOCÊ ACERTOU! Conseguiu {cont} pontos')
+                try:
+                    print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
+                    resposta = input('Resposta : ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
+                    cont -= 1
                     linhas(100)
-                    sleep(1.5)
-                    break
-                else:
-                    print(f'{r}Errou{c}, Tente novamente.')
-                    linhas(100)
+                    if resposta == carta[8]:
+                        print(f'{b}PARABÉNS{c}! VOCÊ ACERTOU! Conseguiu {cont} pontos')
+                        linhas(100)
+                        sleep(1.5)
+                        break
+                    else:
+                        print(f'{r}Errou{c}, Tente novamente.')
+                        linhas(100)
+                except: print('Digite apenas números de 1 a 8: ')
         total = cont + total
         cont = 8
         if tentativas == 3:
