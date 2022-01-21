@@ -1,9 +1,7 @@
-#Funções
 from funções import *
 from arquivos import *
 from time import sleep
 import pygame
-#variáveis
 arq = 'Cadastros.txt'
 if not arquivoExiste(arq):
       criarArquivo(arq)
