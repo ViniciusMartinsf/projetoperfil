@@ -1,5 +1,4 @@
 from funções import *
-from arquivos import *
 from time import sleep
 import pygame
 arq = 'Cadastros.txt'
@@ -21,7 +20,7 @@ print('Linkedin -> https://www.linkedin.com/in/vin%C3%ADcius-martins-60a7b1226/ 
       'Whatsapp -> https://api.whatsapp.com/send?phone=553399433524&text=sua%20mensagem')
 linhas(100)
 instrucões()
-sleep(2)
+sleep(2.1)
 linhas(100)
 while True:
       menu()
@@ -36,5 +35,7 @@ while True:
                   pontuação()
 
             if escolha_opcão == 1:
+                  print(f'{b} EMBARALHANDO AS CARTAS {c}'.center(100))
+                  linhas(100)
                   jogo()
       except: print(f'{r}Opção inválida{c}')

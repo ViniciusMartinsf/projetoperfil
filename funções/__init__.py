@@ -54,8 +54,8 @@ def linhas(msg):
     linha = print('-' * msg)
 
 def sleep1(nmr):
-    for c in range(0, nmr):
-        print('.', end='')
+    for q in range(0, nmr):
+        print(f'{r}.{c}', end='')
         sleep(1)
 
 
@@ -71,8 +71,8 @@ def instrucões():
           'Quanto menos dicas você precisar, maior será a sua pontuação.\n'
           'Ao acertar 4 dicas, você entrará no ranking do jogo.\n'
           'De quantas dicas você precisa? Divirta-se.')
-    print(f'{b}Carregando menu principal{c}', end='')
-    sleep1(11), print('.')
+    print(f'{b}Carregando menu principal{c} ', end='')
+    sleep1(11), print(f'{r}.{c}')
 
 def menu():
     print(f'{b}MENU{c}'.center(100))
@@ -195,10 +195,11 @@ def jogo():
             carta = choice(Pessoa)
             while True:
                 try:
-                    dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
+                    dica = int(input(f'{y}PEÇA UMA DICA DE 1 A 8: {c}').rjust(40))
                     linhas(100)
+                    sleep(0.7)
                     print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
-                    resposta = input('Resposta : ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
+                    resposta = input(f'{b}Digite sua resposta{c}: ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
                     cont -= 1
                     linhas(100)
                     if resposta == carta[8]:
@@ -207,7 +208,8 @@ def jogo():
                         sleep(1.5)
                         break
                     else:
-                        print(f'{r}Errou{c}, Tente novamente.')
+                        sleep(0.4)
+                        print(f'{r}RESPOSTA ERRADA{c}, Tente novamente.')
                         linhas(100)
                 except:
                     print('Digite apenas números de 1 a 8: ')
@@ -215,10 +217,11 @@ def jogo():
             carta = choice(Coisas)
             while True:
                 try:
-                    dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
+                    dica = int(input(f'{y}PEÇA UMA DICA DE 1 A 8: {c}').rjust(40))
                     linhas(100)
+                    sleep(0.7)
                     print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
-                    resposta = input('Resposta : ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
+                    resposta = input(f'{b}Digite sua resposta{c}: ').replace('á', "A").replace('ã', "A").replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
                     cont -= 1
                     linhas(100)
                     if resposta == carta[8]:
@@ -227,7 +230,8 @@ def jogo():
                         sleep(1.5)
                         break
                     else:
-                        print(f'{r}Errou{c}, Tente novamente.')
+                        sleep(0.4)
+                        print(f'{r}RESPOSTA ERRADA{c}, Tente novamente.')
                         linhas(100)
                 except:
                     print('Digite apenas números de 1 a 8: ')
@@ -235,10 +239,11 @@ def jogo():
             carta = choice(Ano)
             while True:
                 try:
-                    dica = int(input('PEÇA UMA DICA DE 1 A 8: ').rjust(40))
+                    dica = int(input(f'{y}PEÇA UMA DICA DE 1 A 8: {c}').rjust(40))
                     linhas(100)
+                    sleep(0.7)
                     print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
-                    resposta = input('Resposta : ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
+                    resposta = input(f'{b}Digite sua resposta{c}: ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
                     cont -= 1
                     linhas(100)
                     if resposta == carta[8]:
@@ -247,7 +252,8 @@ def jogo():
                         sleep(1.5)
                         break
                     else:
-                        print(f'{r}Errou{c}, Tente novamente.')
+                        sleep(0.4)
+                        print(f'{r}RESPOSTA ERRADA{c}, Tente novamente.')
                         linhas(100)
                 except:
                     print('Digite apenas números de 1 a 8: ')
@@ -255,8 +261,11 @@ def jogo():
             carta = choice(Lugar)
             while True:
                 try:
+                    dica = int(input(f'{y}PEÇA UMA DICA DE 1 A 8: {c}').rjust(40))
+                    linhas(100)
+                    sleep(0.7)
                     print(f'Dica de número {dica}: {b}{carta[dica - 1]}{c}')
-                    resposta = input('Resposta : ').replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
+                    resposta = input(f'{b}Digite sua resposta{c}: ').replace('á', "A").replace('Á', "A").replace('Ã', "A").replace(' ', "").upper()
                     cont -= 1
                     linhas(100)
                     if resposta == carta[8]:
@@ -265,7 +274,8 @@ def jogo():
                         sleep(1.5)
                         break
                     else:
-                        print(f'{r}Errou{c}, Tente novamente.')
+                        sleep(0.4)
+                        print(f'{r}RESPOSTA ERRADA{c}, Tente novamente.')
                         linhas(100)
                 except: print('Digite apenas números de 1 a 8: ')
         total = cont + total
@@ -283,7 +293,7 @@ def jogo():
             a.close()
             linhas(35)
             sleep(1)
-            print(f'Sua partida foi finalizada! Retornando ao {b}menu{c} principal do jogo...')
+            print(f'Jogador {r}{nome}{c} inscrito no ranking! Retornando ao {b}menu{c} principal do jogo...')
             sleep(2)
             break
         linhas(100)
