@@ -293,7 +293,7 @@ def jogo():
             a.close()
             linhas(35)
             sleep(1)
-            print(f'Jogador {r}{nome}{c} inscrito no ranking! Retornando ao {b}menu{c} principal do jogo...')
+            print(f'Jogador {y}{nome}{c} inscrito no ranking! Retornando ao {b}menu{c} principal do jogo...')
             sleep(2)
             break
         linhas(100)
