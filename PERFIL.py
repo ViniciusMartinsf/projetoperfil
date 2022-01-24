@@ -20,7 +20,7 @@ print('Linkedin -> https://www.linkedin.com/in/vin%C3%ADcius-martins-60a7b1226/ 
       'Whatsapp -> https://api.whatsapp.com/send?phone=553399433524&text=sua%20mensagem')
 linhas(100)
 instrucões()
-sleep(2.1)
+sleep(2)
 linhas(100)
 while True:
       menu()
